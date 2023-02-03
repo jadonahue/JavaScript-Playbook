@@ -571,8 +571,9 @@ if (((year % 4) === 0) && ((year % 100) === 0) && ((year % 400) === 0)) {
 var eggs = [redEgg, blueEgg, greenEgg];
 var myEgg = eggs[1]; // Will return blueEgg cause position is 1.
 eggs.length; // Counts eggs, so 3.
-eggs.includes(redEgg); // This will go throught list and see if there is another redEgg other than initial. Returns True or False.
-
+eggs.includes("redEgg"); // This will go throught list and see if there is another redEgg other than initial. Returns True or False.
+eggs.push("pinkEgg"); // This will add pinkEgg to the end of array.
+eggs.pop("pinkEgg"); // This will remove the last item in the array.
 
 var guestList = ["Angela", "Jack", "Pam", "James", "Lara", "Jason"];
 
@@ -581,7 +582,237 @@ var guestList = ["Angela", "Jack", "Pam", "James", "Lara", "Jason"];
 var guestName = prompt("What is your name?");
 
 if (guestList.includes(guestName)) {
-    alert("Welcome");
+  alert("Welcome");
 } else {
-    alert("'Sorry maybe next time.'");
+  alert("'Sorry maybe next time.'");
 }
+
+
+// Challenge FizzBuzz: 
+/* Create a function which outputs number and adds to array.
+Fizz for numbers divisible by 3 and Buzz if divisible by 5.
+If the number is divisible by 3 and 5 then output FizzBuzz.
+If the number isnt divisible by any of those, then output the number.
+*/
+var output = [];
+var count = 1;
+
+
+function fizzBuzz() {
+
+  if (count % 3 === 0 && count % 5 === 0) {
+    output.push("FizzBuzz");
+  }
+  else if (count % 3 === 0) {
+    output.push("Fizz");
+  }
+  else if (count % 5 === 0) {
+    output.push("Buzz");
+  }
+  else {
+    output.push(count);
+  }
+
+  count++;
+
+  console.log(output);
+}
+
+
+
+
+// Challenge Who's Buying Lunch?:
+/*
+You are going to write a function which will select a random name from a list of names. The person selected will have to pay for everybody's food bill.
+
+Important: The output should e returned from the function and you do not need alert, prompt or console.log. The output should match the example output exactly, including capitalisation and punctuation.
+
+Example Input
+
+["Angela", "Ben", "Jenny", "Michael", "Chloe"]
+Example Output
+
+Michael is going to buy lunch today!
+*/
+
+function whosPaying(names) {
+
+  /******Don't change the code above*******/
+
+  //Write your code here.
+  var pickPerson = Math.floor(Math.random() * (names.length));
+  return (names[pickPerson] + " is going to buy lunch today!")
+
+  /******Don't change the code below*******/
+}
+
+
+
+// Control Statements: While Loops
+/* 
+while (soething is true) {
+  // Do something
+}
+*/
+
+
+
+// FizzBuzz: With While Loop
+var output = [];
+var count = 1;
+
+function fizzBuzz() {
+
+  while (count <= 100) {
+
+    if (count % 3 === 0 && count % 5 === 0) {
+      output.push("FizzBuzz");
+    } else if (count % 3 === 0) {
+      output.push("Fizz");
+    } else if (count % 5 === 0) {
+      output.push("Buzz");
+    } else {
+      output.push(count);
+    }
+
+    count++;
+
+  }
+  console.log(output);
+}
+
+
+// Challegne 99 Cartons Of Milk In The Fridge:
+var numOfMilk = 99;
+
+function milk() {
+
+  while (numOfMilk >= 0) {
+
+    if (numOfMilk > 0) {
+      console.log (numOfMilk + " cartons of milk in the fridge, " + numOfMilk + " cartons of milk. Take 1 now, pass it around, " + (numOfMilk - 1) + " cartons of milk in the fridge.")
+
+    } 
+    
+    numOfMilk--;
+  }
+ 
+}
+
+
+// Control Statements: For Loops
+/* start, end, change: starts at i = 0, checks if i < 2, does something in loop. 
+Once done with current loop it then i++;, so i = 1, then checks if i < 2. 
+*/
+for(i = 0; i < 2; i++) {
+  // Do something
+}
+
+// FizzBuzz With For Loop
+var output = [];
+
+function fizzBuzz() {
+
+  for (var count = 1; count <= 100; count++) {
+    
+    if (count % 3 === 0 && count % 5 === 0) {
+      output.push("FizzBuzz");
+    } else if (count % 3 === 0) {
+      output.push("Fizz");
+    } else if (count % 5 === 0) {
+      output.push("Buzz");
+    } else {
+      output.push(count);
+    }
+
+  }
+  console.log(output);
+}
+
+// While Loop Vs For Loop
+
+// While is checking for a state, true or false.
+while (something is true) {
+  // Do something
+}
+
+// For iteration and how many iterations.
+for (i = 0; i < 2; i++) {
+  // Do something
+}
+
+
+
+
+/*
+The Fibonacci Exercise
+Fibonacci was an Italian mathematician who came up with the Fibonacci sequence:
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
+
+Where every number is the sum of the two previous ones.
+
+e.g. 0, 1, 1, 2, 3, 5 comes from
+
+0 + 1 = 1
+
+1 + 1 = 2
+
+1 + 2 = 3
+
+2 + 3 = 5
+
+etc.
+
+Create a function where you can call it by writing the code:
+
+fibonacciGenerator (n)
+
+Where n is the number of items in the sequence.
+
+So I should be able to call:
+
+fibonacciGenerator(3) and get
+
+[0,1,1]
+
+as the output.
+
+IMPORTANT: The solution checker is expecting an array as the correct output.
+
+Do NOT change any of the existing code.
+
+You do NOT need any alerts or prompts, the result should be returned from the function as an output.
+
+The first two numbers in the sequence must be 0 and 1.
+
+Also, if you decide to create a for loop, make sure you explicitly specify var i = 0 rather than simply writing i = 0 . This is a quirk of the testing suite.
+
+e.g. for (var i = 0; i < 10; i ++)
+
+*/
+function fibonacciGenerator(n) {
+
+  var output = [];
+  if (n === 1) {
+      var output = [0];
+    }
+  else if (n === 2) {
+      output = [0, 1];
+    }
+  else {
+    output = [0, 1];
+
+    for (var i = 2; i < n; i++) {
+      output.push(output[output.length - 2] + output[output.length - 1]);
+      
+    }
+    
+  }
+
+  return output
+  
+}
+
+output = fibonacciGenerator(1);
+console.log(output)
