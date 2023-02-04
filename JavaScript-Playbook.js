@@ -797,10 +797,10 @@ function fibonacciGenerator(n) {
   if (n === 1) {
     var output = [0];
   }
-else if (n === 2) {
+  else if (n === 2) {
     output = [0, 1];
   }
-else {
+  else {
     output = [0, 1];
 
     for (var i = 2; i < n; i++) {
@@ -816,3 +816,93 @@ else {
 
 output = fibonacciGenerator(1);
 console.log(output)
+
+
+
+// DOM: Document Object Model
+// Is basically the tree heirarchy of the website. Can be used to manipulate objects etc.
+
+// Properties: Describe something about the object.
+// Methods: Are things that the object can do.
+
+// Get property
+car.colour; // Will return car color. Notice the property doesnt have ()
+
+// Set property
+car.numberOfDoors = 0; // Will set car doors to 0
+
+// Call method
+car.drive(); // The car starts driving. Notice the method has ()
+
+
+/* The only difference between a method and fucntion is that a 
+method is something that an object can do. Has to be associated with an object. */
+
+// Example of changing object using DOM
+var heading = document.firstElementChild.lastElementChild.firstElementChild
+heading.innerHTML = "Good Bye";
+heading.getElementsByClassName.color = "Red";
+document.querySelector("input").click();
+
+
+// Challenge Change Object Using DOM
+// Solution 1
+var thirdList = document.firstElementChild.lastElementChild.lastElementChild.lastElementChild
+thirdList.innerHTML = "Challenge Complete!";
+
+// Solution 2
+document.firstElementChild.lastElementChild.lastElementChild.lastElementChild.innerHTML = "Challenge Complete";
+
+
+// Using DOM to Select Examples
+document.getElementsByTagName("li");
+document.getElementsByTagName("li")[2].style.color = "purple"; // Can select specific in array
+document.getElementsByTagName("li").length;
+document.getElementsByClassName("btn"); // Can select by class
+document.getElementById("title"); // Can select based on Id
+document.getElementById("title").innerHTML = "Good Bye"; // Can select and change 
+document.querySelector("h1"); // Can select with query tag
+document.querySelector("#title"); // Can select with query id
+document.querySelector(".btn"); // Can select with query class
+document.querySelector("li a"); // Can select a specific a by listing the heirachy before. Notice the space.
+document.querySelector("li.item"); // Can select by combining. In this case a list item with the class item.
+document.querySelector("#list .item"); // If you select something with querySelector with multiple returns. You will only get first item.
+document.querySelector("li a").style.color = "red"; // // This will select the a inside the the li and color it red.
+document.querySelector(".item a").style.color = "red"; // This will select the a inside the class item and color it red.
+document.querySelectorAll("#list .item"); // Query selector all can return multiple. This will return list/array.
+document.querySelectorAll("#list .item")[2].style.color.blue; // To modify one of the items. Need to select the array position.
+// Generally will see querySelector and queryselectorAll being used. Can be more specific using this.
+// The other get ways are broad and can't be very specific.
+
+
+// DOM Style
+document.querySelector("h1").style.fontSize = "10rem"; // Uses camelCasing as "strings" with JavaScript, Even though css uses font-size.
+
+
+
+// Seperation Of Concern: Structure vs Style vs Behaviour
+/*
+HTML is for content only
+CSS is for styling the website
+JS is for behaviour
+*/
+
+document.querySelector("button").classList // This will give us the list of classes that are attached to element.
+document.querySelector("button").classList.add("inivisible"); // This will add this class to button. Then we can go to css to style.
+document.querySelector("button").classList.remove("invisible"); // This will remove the class.
+document.querySelector("button").classList.toggle("invisible"); // This will toggle on if off or off if on.
+// In other words we can keep the syling in CSS but use JS to turn on and off.
+
+
+// Manipulate Text
+.innerHTML; // Gives element between h1 tags. This would effect also <strong>Hello</strong>
+.innerHTML = "<em>Good Bye</em>" // You can also adjsut html on fly with the text. Must be in "" as string. 
+
+  .textContent; // Just gives you the text content
+
+
+// Manipulate Attributes
+document.querySelector("a").attributes; // Retrieves and shows in array the different attributes
+document.querySelector("a").getAttribute("href"); // Gets single attribute
+document.querySelector("a").setAttribute("href", "https://www.bing.com"); // Takes two inputs. First is what we are changing. Second is what its being cahnged to.
+
