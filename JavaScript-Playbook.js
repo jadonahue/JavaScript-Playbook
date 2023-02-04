@@ -690,13 +690,13 @@ function milk() {
   while (numOfMilk >= 0) {
 
     if (numOfMilk > 0) {
-      console.log (numOfMilk + " cartons of milk in the fridge, " + numOfMilk + " cartons of milk. Take 1 now, pass it around, " + (numOfMilk - 1) + " cartons of milk in the fridge.")
+      console.log(numOfMilk + " cartons of milk in the fridge, " + numOfMilk + " cartons of milk. Take 1 now, pass it around, " + (numOfMilk - 1) + " cartons of milk in the fridge.")
 
-    } 
-    
+    }
+
     numOfMilk--;
   }
- 
+
 }
 
 
@@ -704,7 +704,7 @@ function milk() {
 /* start, end, change: starts at i = 0, checks if i < 2, does something in loop. 
 Once done with current loop it then i++;, so i = 1, then checks if i < 2. 
 */
-for(i = 0; i < 2; i++) {
+for (i = 0; i < 2; i++) {
   // Do something
 }
 
@@ -714,7 +714,7 @@ var output = [];
 function fizzBuzz() {
 
   for (var count = 1; count <= 100; count++) {
-    
+
     if (count % 3 === 0 && count % 5 === 0) {
       output.push("FizzBuzz");
     } else if (count % 3 === 0) {
@@ -795,23 +795,23 @@ function fibonacciGenerator(n) {
 
   var output = [];
   if (n === 1) {
-      var output = [0];
-    }
-  else if (n === 2) {
-      output = [0, 1];
-    }
-  else {
+    var output = [0];
+  }
+else if (n === 2) {
+    output = [0, 1];
+  }
+else {
     output = [0, 1];
 
     for (var i = 2; i < n; i++) {
       output.push(output[output.length - 2] + output[output.length - 1]);
-      
+
     }
-    
+
   }
 
   return output
-  
+
 }
 
 output = fibonacciGenerator(1);
