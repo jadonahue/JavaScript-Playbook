@@ -704,7 +704,7 @@ function milk() {
 /* start, end, change: starts at i = 0, checks if i < 2, does something in loop. 
 Once done with current loop it then i++;, so i = 1, then checks if i < 2. 
 */
-for (i = 0; i < 2; i++) {
+for (var i = 0; i < 2; i++) {
   // Do something
 }
 
@@ -737,7 +737,7 @@ while (something is true) {
 }
 
 // For iteration and how many iterations.
-for (i = 0; i < 2; i++) {
+for (var i = 0; i < 2; i++) {
   // Do something
 }
 
@@ -906,3 +906,373 @@ document.querySelector("a").attributes; // Retrieves and shows in array the diff
 document.querySelector("a").getAttribute("href"); // Gets single attribute
 document.querySelector("a").setAttribute("href", "https://www.bing.com"); // Takes two inputs. First is what we are changing. Second is what its being cahnged to.
 
+
+
+// Using Function With Event Listener
+// One way to use this with function
+document.querySelector("button").addEventListener("click", handleClick);
+
+function handleClick() {
+    alert("I got clicked")
+}
+
+// Another way to use with an anonymous function. Targets first button.
+document.querySelector("button").addEventListener("click", function () {
+    alert("I got clicked")
+
+    // This targets the first button only.
+});
+
+// Another way to use with an anonymous function. Targets all drum class in array using for each loop.
+// This uses a forEach loop which iterates over each drum button class and adds the event listner/function to each iteration.
+document.querySelectorAll(".drum").forEach(element => {
+    element.addEventListener("click", function () {
+        alert("I got clicked")
+});
+
+ // This targets each drum button and adds the event listner.
+
+});
+
+// Another way to use with an anonymous function. Targets all drum class elements in array with for loop.
+var numberOfDrumButtons = document.querySelectorAll(".drum").length; // Stores the lenght of drum buttons into variable
+
+// For loop which iterates through the length of drum buttons until through entire list.
+for(var i = 0; i < numberOfDrumButtons; i++) {
+    document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+        alert("I got clickerd")
+
+        // This targets each drum button and adds the event listner.
+    });
+}
+
+
+
+// Debugger mode (if in web browser remember shift + enter to go to next line):
+debugger;
+function(input1, input2);
+
+// Example using this, this is what triggers the event etc.
+this.style.color = "red";
+
+// Higher Order Functions: Are fucntions which can take other functions as input.
+
+// JavaScript Objects
+// bellBoy1 is the object {properties of that object}. name: is the property tied to that object.
+// the object is a variable and the property is another variable of that object.
+var bellBoy1 = {
+  name: "Timmy",
+  age: 19,
+  hasWorkPermit: true,
+  languages: ["French", "English"]
+}
+
+// Can call using properties
+alert("Hello my name is " + bellBoy1.name) // .name is the property name for bellBoy1
+
+// Object Example
+var houseKeeper1 = {
+  name: "Melanie",
+  age: 42,
+  yearsExperience: 25,
+  hotelsWorkedAt: ["Marriot", "Holiday Inn", "Radisson", "Motel 8"],
+  languages: ["English", "Spanish", "Japanese"],
+  cleaningSkills: ["bedroom", "bathroom", "laundry", "mopping", "dishes", "vacuuming"]
+}
+
+// Constructor Function:
+// Notice "BellBoy" is capitilized and not camel casing. This defines Constructor Function.
+// You can create new objects from a constructor function.
+function BellBoy (firstName, age, hasWorkPermit,languages) {
+ this.firstName = firstName;
+ this.age = age;
+ this.hasWorkPermit = hasWorkPermit;
+ this.languages = languages;
+}
+
+// Initialize object from contructor function:
+var bellBoy2 = new BellBoy("Ron", 21, true, ["English", "Spanish"]); // Initialize new object. Notice "new" and "BellBoy" is capitilized and not camel casing.
+
+// Which will create this object.
+var bellBoy2 = {
+  name: "Ron",
+  age: 21,
+  hasWorkPermit: true,
+  languages: ["English", "Spanish"]
+}
+
+
+// How To Use Switch Statements
+switch (key) {
+  case value:
+    
+    break;
+
+  default:
+    break;
+}
+
+// Example using switch statement
+// Another way to use with an anonymous function. Targets all drum class elements in array with for loop.
+var numberOfDrumButtons = document.querySelectorAll(".drum").length; // Stores the lenght of drum buttons into variable
+
+// For loop which iterates through the length of drum buttons until through entire list.
+for(var i = 0; i < numberOfDrumButtons; i++) {
+    document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+
+        var buttonInnerHTML = this.innerHTML;
+
+        switch (buttonInnerHTML) {
+            case "w":
+                var tom1 = new Audio("sounds/tom-1.mp3");
+                tom1.play();
+                break;
+
+            case "a":
+                var tom2 = new Audio("sounds/tom-2.mp3");
+                tom2.play();
+                break;
+
+            case "s":
+                var tom3 = new Audio("sounds/tom-3.mp3");
+                tom3.play();
+                break;
+
+            case "d":
+                var tom4 = new Audio("sounds/tom-4.mp3");
+                tom4.play();
+                break;
+
+            case "j":
+                var crash = new Audio("sounds/crash.mp3");
+                crash.play();
+                break;
+
+            case "k":
+                var kickBass = new Audio("sounds/kick-bass.mp3");
+                kickBass.play();
+                break;
+
+            case "l":
+                var snare = new Audio("sounds/snare.mp3");
+                snare.play();
+                break;
+
+            default: console(buttonInnerHTML);
+                
+        }
+
+        // This targets each drum button and adds the audio.
+    });
+}
+
+
+
+// Method: Add method to object with function
+var bellBoy1 = {
+  name: "Timmy",
+  age: 19,
+  hasWorkPermit: true,
+  languages: ["French", "English"]
+  moveSuitcase: function() {
+    alert("May I take your suitcase?");
+    pickUpSuitecase();
+    moveSuitcase();
+  }
+}
+
+// Call method:
+bellBoy1.moveSuitcase();
+
+// Method: Add this method to Constructor Funtion
+function BellBoy (firstName, age, hasWorkPermit, languages) {
+  this.firstName = firstName;
+  this.age = age;
+  this.hasWorkPermit = hasWorkPermit;
+  this.languages = languages;
+  this.moveSuitcase = function() {
+    alert("May I take your suitcase?");
+    pickUpSuitecase();
+    moveSuitcase();
+  }
+ }
+
+ 
+ // One way to check for a key event as to what is clicked is using the event and console logging to see output.
+ document.addEventListener("keydown", function(event) {
+  console.log(event)
+});
+
+// Example properties output of returned event key click.
+isTrusted: true
+altKey: false
+bubbles: true
+cancelBubble: false
+cancelable: true
+charCode: 0
+code: "KeyD"
+composed: true
+ctrlKey: false
+currentTarget: null
+defaultPrevented: false
+detail: 0
+eventPhase: 0
+isComposing: false
+key: "d"
+keyCode: 68
+location: 0
+metaKey: false
+repeat: false
+returnValue: true
+shiftKey: false
+
+// Know this information you can target and store specific output. Example, the key value.
+// This listens for keys clicked. When the keyboard button is clicked it then stores the key into a variable.
+document.addEventListener("keydown", function(event) {
+  var clickedKey = event.key
+});
+
+
+// In depth example which uses event listner for click and key stroke to play sound. This uses function, for loop, etc.
+// Another way to use with an anonymous function. Targets all drum class elements in array with for loop.
+var numberOfDrumButtons = document.querySelectorAll(".drum").length; // Stores the lenght of drum buttons into variable
+
+// For loop which iterates through the length of drum buttons until through entire list.
+// This also listens for the image thats clicked and stores the the iteration of the clicks innerHTML char and stores in a variable.
+// This then passes the buttonInnerHTML variable and passes it into the makeSound function to play corresponding sound.
+for(var i = 0; i < numberOfDrumButtons; i++) {
+    document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+
+        var buttonInnerHTML = this.innerHTML;
+
+        makeSound(buttonInnerHTML)
+
+    
+    });
+}
+
+// This listens for a keystroke event. The function store the even when key is clicked.
+// Then uses the make sound function passing in the input of the event, specifically the "key" of that event triggered.
+// This then plays the sound of the corresponding switch in the makeSound function for the event.key
+document.addEventListener("keydown", function(event) {
+    makeSound(event.key)
+  });
+
+
+
+// This is the function to make a sound based on the switch which is triggered. This takes a key for the input.
+function makeSound(key){
+
+    switch (key) {
+        case "w":
+            var tom1 = new Audio("sounds/tom-1.mp3");
+            tom1.play();
+            break;
+
+        case "a":
+            var tom2 = new Audio("sounds/tom-2.mp3");
+            tom2.play();
+            break;
+
+        case "s":
+            var tom3 = new Audio("sounds/tom-3.mp3");
+            tom3.play();
+            break;
+
+        case "d":
+            var tom4 = new Audio("sounds/tom-4.mp3");
+            tom4.play();
+            break;
+
+        case "j":
+            var crash = new Audio("sounds/crash.mp3");
+            crash.play();
+            break;
+
+        case "k":
+            var kickBass = new Audio("sounds/kick-bass.mp3");
+            kickBass.play();
+            break;
+
+        case "l":
+            var snare = new Audio("sounds/snare.mp3");
+            snare.play();
+            break;
+
+        default: console(buttonInnerHTML);
+            
+    }
+
+}
+
+
+
+// Higher Order Function: A function thats able to take functions as input
+// Higher Order Funcion example: "addEventListner()" 
+// Callback Function, which allows us to wait for something to finish happening. example: "respondToKey(event)"
+document.addEventListener("keydown", respondToKey(event));
+
+function respondToKey(event) {
+  console.log("Key pressed.");
+}
+
+// Another Example, breakdown of simplified wording to have a visual of how the 
+// Higher Order Function and Callback Function works:
+function anotherAddEventListner(typeOfEvent, callback) {
+  // Detect event code...
+
+  // Imagine the "p" key is pressed on keyboard. This stores the event properties in variable.
+  var eventThatHappened = {
+    eventType: "keydown",
+    key: "p",
+    durationOfKeyPress: 2,
+  }
+
+  // If the event type is equal to what the event was looking for then it call back the event that happened.
+  // This uses the callback at the original function location for another add event listner.
+  // Which then uses then outputs the console.log event.
+  if (eventThatHappened.eventType === typeOfEvent){
+    callback(eventThatHappened);
+  }
+  
+}
+
+
+// When then using the function:
+anotherAddEventListner("keydown", function(event) {
+  console.log(event);
+});
+
+// Output:
+{eventType: 'keydown', key: 'p', durationOfKeyPress: 2}
+durationOfKeyPress: 2
+eventType: "keydown"
+key: "p"
+
+// Can use debugger to see better:
+debugger;
+anotherAddEventListner("keydown", function(event) {
+  console.log(event);
+});
+
+
+// Function Example Iteration
+// Notice "haystack[i]" this returns the current iteration value stored.
+// Notice ""found the needle at position " + i;" i here returns the position of the array.
+function findNeedle(haystack) {
+  var count = 0;
+  var needle = "";
+  for (var i = 0; i < haystack.length; i++) {
+    if (haystack[i] === "needle") {
+      var needle = "found the needle at position " + i;
+    } else {
+      continue;
+    }
+  }
+  return needle;
+}
+
+var haystack_1 = ['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3', true, false];
+
+// Use Function
+findNeedle(haystack_1)
