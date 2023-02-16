@@ -1276,3 +1276,164 @@ var haystack_1 = ['3', '123124234', undefined, 'needle', 'world', 'hay', 2, '3',
 
 // Use Function
 findNeedle(haystack_1)
+
+
+// jQuery
+// jQuery Url: https://jquery.com/
+
+// All same line of code
+document.querySelector("h1"); // Normal way
+jQuery("h1"); // Same line of code using jQuery
+$("h1"); // Even shorter jQuery code
+document.querySelectorAll("button"); // Normal
+$("buttons"); // This is the same. Notice no difference between query selector and all.
+
+// Adding jQuery Script
+// This is recommended to be added right before the </body> tag. Make sure to put before other index script
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+// If adding in header make sure to add the jQuery to run when document ready. This is adding in the index.js
+$(document).ready(function() {
+  $("h1").css("color", "red")
+});
+
+//Minification can be done for code at this site: https://minifier.org/
+
+// Examples (In practice we want JS to be about behavior and CSS to handle styles etc.)
+$("h1").css("color", "green"); // This sets the h1 to green
+$("h1").css("color"); // This will return the h1 color
+console.log($("h1").css("color")); // This will return the h1 color
+console.log($("h1").css("font-size")); // This will return the h1 font size
+console.log($("h1").css("color")); // This will return the h1 color
+$("h1").css("font-size"); // This will return the h1 font-size
+$("h1").css("font-size", "5rem"); // This will set the h1 font-size
+
+// Better Example
+// Lets say our css has: 
+.big-title {
+  font-size: 10rem;
+  color: yellow;
+  font-family: cursive;
+}
+
+.margin-50 {
+  margin: 50px;
+}
+
+// Manipulating Classes with jQuery. Then in JS we can write this: 
+$("h1").addClass("big-title"); // This adds the CSS class big-title to h1
+$("h1").removeClass("big-title"); // This removes the CSS class big-title to h1
+$("h1").addClass("big-title margin-50"); // This would add two classes. Notice the second class is in same "" but the space seperates each new class
+$("h1").hasClass("margin-50"); // Will return a true or false boolean depending on if element(h1) has the class margin-50 or not. 
+
+// This basically keeps the CSS customizing but JS applying it. This seperates the behavior from the styles.
+
+
+// Manipulating Text With jQuery
+$("h1").text("Bye") // This will change the h1 to "Bye"
+$("button").text("Don't Click Me"); // Assuming there are multiple button tags. This will change all the button text to "Don't Click Me"
+$("button").html("<em>Hey</em>"); // This is the same as .innerHTML. Notice jQuery uses .html which is the same as .innerHTML
+
+// Notice with jQuery we are using methods while accessing with the . notation.
+
+// Maniuplating Attributes With jQuery
+$("img").attr("src"); // This will get the value of the attribute.
+$("a").attr("href", "https://www.yahoo.com"); // This will change the a href to yahoo.
+$("h1").attr("class"); // This will get all the classes applied to h1. Class is also an attribute.
+
+// Add Event Listeners With jQuery
+$("h1").click(function(){
+  $("h1").css("color", "purple");
+}); // This will add event listener which will change the h1 to purple when clicked.
+
+for (var i = 0; i < 5; i++) {
+  document.querySelectorAll("button")[i].addEventListener("click", function(){
+    document.querySelector("h1").style.color = "purple";
+  });
+} // This will change text of h1 to purple when button is clicked. This is written in vanilla JS.
+
+$("button").click(function(){
+  $("h1").css("color", "purple");
+}); // This will do the same as above but no for loop is needed when using jQuery.
+
+// Note the keydown includes keys like shift, esc etc. keypress does not inlcude for jQueryuery.
+$("input").keypress(function(event){
+  console.log(event.key);
+}); // This will check/listen for the input for keypress and console log what is typed in input.
+
+$("body").keydown(function(event){
+  console.log(event.key);
+}); // This will check/listen for the body for keypress and console log what is typed in input.
+
+$(document).keypress(function(event){
+  console.log(event.key);
+}); // This will check/listen for the entire document for keypress and console log what is typed in input.
+
+$(document).keydown(function(event){
+  $("h1").text(event.key)
+}); // This will check/listen for the entire document for the keypress and then change the h1 to the key that was pressed.
+
+
+// Adding And Removing Elements With jQuery 
+$("h1").before("<button>New</button>"); // Creates button before h1. <button>New</button><h1>Hello</h1>
+$("h1").after("<button>New</button>"); // Creates button after h1. <h1>Hello</h1><button>New</button>
+$("h1").prepend("<button>New</button>"); // Creates button into the h1 before the text. <h1><button>New</button>Hello</h1>
+$("h1").append("<button>New</button>"); // Creates button into the h1 after the text. <h1>Hello<button>New</button></h1>
+$("button").remove(); // This will remove all button elements.
+
+
+// Website Animations With jQuery
+$("button").on("click", function(){
+  $("h1").hide();
+}); // Hides the h1 when any button is clicked.
+
+$("button").on("click", function(){
+  $("h1").show();
+}); // Will make the h1 appear when any button is clicked.
+
+$("button").on("click", function(){
+  $("h1").toggle();
+}); // This will toggle the hide and show of h1 when any button is clicked.
+
+$("button").on("click", function(){
+  $("h1").fadeOut();
+}); // Will reduce the opacity until h1 is hidden. When button is clicked.
+
+$("button").on("click", function(){
+  $("h1").fadein();
+}); // Will increase the opacity until h1 is viisble. When button is clicked.
+
+$("button").on("click", function(){
+  $("h1").fadeToggle();
+}); // Will decrease and increase opacity to make h1 hidden or visible. When button is clicked.
+
+$("button").on("click", function(){
+  $("h1").slideUp();
+}); // Will slide h1 up until hidden. When button is clicked.
+
+$("button").on("click", function(){
+  $("h1").slideDown();
+}); // Will slide h1 down until visible. When button is clicked.
+
+$("button").on("click", function(){
+  $("h1").slideDown();
+}); // Will slide h1 up and down to make hidden or visible. When button is clicked.
+
+$("button").on("click", function(){
+  $("h1").animate();
+}); // This allows you to define custom animations with CSS. When button is clicked.
+
+$("button").on("click", function(){
+  $("h1").animate({opacity: 0.5});
+}); // This allows you to define custom animations with CSS. Can only add CSS rules with numeric values. This changes opacity when button clicked.
+// (Cant change it to like red.)
+
+$("button").on("click", function(){
+  $("h1").animate({margin: "20%"});
+}); // This change margin for h1 by 20%
+
+
+// Chain Multiple Animations Together
+$("button").on("click", function(){
+  $("h1").slideUp().slideDown().animate({opacity: 0.5});
+}); // This chains the h1 to slide up then down then set opacity to 0.5 when button is clicked. This does in order.
